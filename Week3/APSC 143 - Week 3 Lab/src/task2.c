@@ -24,14 +24,19 @@ Note:
 */
 int main()
 {
+    int radius = 8;
+    double circumference = 2.0 * M_PI * (double)radius;
+    double volume = pow(radius, 3) * M_PI * 4 / 3;
+    double crossArea = M_PI * pow(radius, 2);
+    double surfaceArea = 4 * crossArea;
 
 
     // Print out the calculated properties of a sphere.
-    printf("The properties of a sphere of radius XYZ are:\n");
-    printf("    circumference: XYZ\n");
-    printf("    cross-sectional area: XYZ\n");
-    printf("    surface area: XYZ\n");
-    printf("    volume: XYZ\n");
+    printf("The properties of a sphere of radius %d are:\n", radius);
+    printf("    circumference: %f\n", circumference);
+    printf("    cross-sectional area: %f\n", crossArea);
+    printf("    surface area: %f\n", surfaceArea);
+    printf("    volume: %f\n", volume);
 
     return 0;
 }
