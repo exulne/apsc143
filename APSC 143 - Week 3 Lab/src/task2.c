@@ -27,7 +27,7 @@ int main()
     int radius = 8;
     double circumference = 2.0 * M_PI * (double)radius;
     double volume = pow(radius, 3) * M_PI * 4 / 3;
-    double crossArea = M_PI * pow(radius, 2);
+    double crossArea = M_PI * pow(radius, 2); 
     double surfaceArea = 4 * crossArea;
 
 

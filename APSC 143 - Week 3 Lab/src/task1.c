@@ -15,12 +15,9 @@ int main()
     int numerator = 4;
     int denominator = 3;
 
-    double numeratorD = (double)numerator;
-    double denominatorD = (double)denominator;
-
     // Calculate the fraction as a real-valued number and the associated whole value and remainder
-    double fraction = numeratorD/denominatorD;
-    int whole_value = numerator/denominator;
+    double fraction = (double) numerator/denominator;
+    int whole_value = numerator / denominator; // the better practice here is to include <math.h> and use floor()
     int remainder = numerator%denominator;
 
     // Print out the fraction as (1) a common fraction X/Y, (2) a mixed fraction A B/Y, and (3) a real-valued number, A.CDEF
