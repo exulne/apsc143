@@ -73,6 +73,7 @@ int main()
 */
 double discriminant(double a, double b, double c)
 {
+    return (pow(b, 2) - (4 * a * c));
     // TODO: Write your code here.
 }
 
@@ -87,6 +88,7 @@ double discriminant(double a, double b, double c)
 */
 double quadraticRoot1(double a, double b, double c)
 {
+    return ((-b+sqrt(discriminant(a, b, c)))/(2*a));
     // TODO: Write your code here.
 }
 
@@ -101,6 +103,7 @@ double quadraticRoot1(double a, double b, double c)
 */
 double quadraticRoot2(double a, double b, double c)
 {
+    return ((-b-sqrt(discriminant(a, b, c)))/(2*a));
     // TODO: Write your code here.
 }
 
