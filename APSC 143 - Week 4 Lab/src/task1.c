@@ -60,8 +60,8 @@ int main()
 */
 int printVerse(int numBottles)
 {
-    int sub = --numBottles;
-    printf("%d bottls of beer on the wall.\n%d bottles of beer.\nTake one down, pass it around,\n%d bottles of beer on the wall.\n",numBottles, numBottles, sub, sub);
+    int sub = numBottles-1;
+    printf("%d bottles of beer on the wall.\n%d bottles of beer.\nTake one down, pass it around,\n%d bottles of beer on the wall.\n",numBottles, numBottles, sub, sub);
     return(sub);
 }
 
