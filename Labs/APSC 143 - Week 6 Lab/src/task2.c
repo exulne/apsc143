@@ -88,7 +88,6 @@ bool sortedNumbers(int* num1Ptr, int* num2Ptr, int* num3Ptr, int** smallPtrPtr, 
     else if (*num2Ptr <= *num1Ptr && *num2Ptr <= *num3Ptr)
     {
         *smallPtrPtr = num2Ptr;
-
         if (*num1Ptr <= *num3Ptr){
             *middlePtrPtr = num1Ptr;
             *largePtrPtr = num3Ptr;
@@ -100,7 +99,6 @@ bool sortedNumbers(int* num1Ptr, int* num2Ptr, int* num3Ptr, int** smallPtrPtr, 
     }
     else{
         *smallPtrPtr = num3Ptr;
-
         if (*num1Ptr <= *num2Ptr){
             *middlePtrPtr = num1Ptr;
             *largePtrPtr = num2Ptr;
