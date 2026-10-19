@@ -27,10 +27,28 @@ bool sortedNumbers(int* num1Ptr, int* num2Ptr, int* num3Ptr, int** smallPtrPtr, 
 
 /////////////////////////////////////////////////////
 
-int main ()
+int main()
 {
-    // TODO Write code here to test your function. The TA will ask to see how you tested it before uploading to Gradescope.
+    int num1 = 40;
+    int num2 = 10;
+    int num3 = 20;
 
+    int *small = NULL;
+    int *middle = NULL;
+    int *large = NULL;
+
+    bool result = sortedNumbers(&num1, &num2, &num3, &small, &middle, &large);
+    
+    if (result){
+        printf("%d\n%d\n%d\n", *small, *middle, *large);
+    }
+    else{
+        printf("failed");
+    }
+                            
+
+
+    // TODO Write code here to test your function. The TA will ask to see how you tested it before uploading to Gradescope.
     return 0;
 }
 
@@ -53,6 +71,47 @@ int main ()
 
 bool sortedNumbers(int* num1Ptr, int* num2Ptr, int* num3Ptr, int** smallPtrPtr, int** middlePtrPtr, int** largePtrPtr)
 {
+    if (num1Ptr == NULL || num2Ptr == NULL || num3Ptr == NULL || smallPtrPtr == NULL || middlePtrPtr == NULL || largePtrPtr == NULL){
+        return false;
+    }
+    if (*num1Ptr <= *num2Ptr && *num1Ptr <= *num3Ptr){
+        *smallPtrPtr = num1Ptr;
+        if (*num2Ptr <= *num3Ptr){
+            *middlePtrPtr = num2Ptr;
+            *largePtrPtr = num3Ptr;
+        }
+        else{
+            *middlePtrPtr = num3Ptr;
+            *largePtrPtr = num2Ptr;
+        }
+    }
+    else if (*num2Ptr <= *num1Ptr && *num2Ptr <= *num3Ptr)
+    {
+        *smallPtrPtr = num2Ptr;
+
+        if (*num1Ptr <= *num3Ptr){
+            *middlePtrPtr = num1Ptr;
+            *largePtrPtr = num3Ptr;
+        }
+        else{
+            *middlePtrPtr = num3Ptr;
+            *largePtrPtr = num1Ptr;
+        }
+    }
+    else{
+        *smallPtrPtr = num3Ptr;
+
+        if (*num1Ptr <= *num2Ptr){
+            *middlePtrPtr = num1Ptr;
+            *largePtrPtr = num2Ptr;
+        }
+        else{
+            *middlePtrPtr = num2Ptr;
+            *largePtrPtr = num1Ptr;
+        }
+    }
+    return true;
+    }
     // TODO Write your code here.
-}
+
 /////////////////////////////////////////////////////
