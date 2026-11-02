@@ -101,7 +101,7 @@ bool flipCString(char cstring[], char cutChar) {
     temp[t] = '\0';
 
     for (int i = 0; i <= len; i++){
-        cstring[i] = temp[i]
+        cstring[i] = temp[i];
     }
 
     return true;

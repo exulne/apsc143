@@ -34,7 +34,9 @@ bool countLetters(char cstring[], int maxLength, int numAZ[]);
 int main() {
     // Write whatever you need in this main function to develop and test your code.
     // Gradescope will not use it but instead call and test your function directly.
-
+    char s1[20] = "HelloWorld";
+    int numAZ[50];
+    countLetters(s1, 50, numAZ);
     return 0;
 }
 
@@ -56,8 +58,8 @@ int main() {
 */
 bool countLetters(char cstring[], int maxLength, int numAZ[]) {
     // TODO: Write your code here
-    if (cstring == NULL | numAZ == NULL | maxLength <= 0){
-        return false
+    if (cstring == NULL | numAZ == NULL | maxLength < 0){
+        return false;
     }
 
     for (int i = 0; i < 26; i++){
