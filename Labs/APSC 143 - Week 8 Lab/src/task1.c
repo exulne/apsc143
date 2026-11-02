@@ -57,7 +57,7 @@ int main() {
 bool countLetters(char cstring[], int maxLength, int numAZ[]) {
     // TODO: Write your code here
     if (cstring == NULL | numAZ == NULL | maxLength <= 0){
-        return false;
+        return false
     }
 
     for (int i = 0; i < 26; i++){

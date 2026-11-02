@@ -62,7 +62,50 @@ int main() {
 */
 bool flipCString(char cstring[], char cutChar) {
     // TODO: Write your code here
-    if (cstring == NULL || )
+    if (cstring == NULL){
+        return false;
+    }
+
+    int len = 0;
+    while (len < LENGTH && cstring[len] != '\0'){
+        len++;
+    }
+
+    if (len == LENGTH) {
+        cstring[LENGTH - 1] = '\0';
+        len = LENGTH - 1;
+    }
+
+    int cut = -1;
+    for (int i = 0; i< len; i++){
+        if (cstring[i] == cutChar){
+            cut = i;
+            break;
+        }
+    }
+
+    if (cut == -1){
+        return false;
+    }
+
+    char temp[LENGTH];
+    int t = 0;
+
+    for (int i = cut + 1; i < len; i++){
+        temp[t++] = cstring[i];
+    }
+    temp[t++] = cutChar;
+    for (int i = 0; i < cut; i++){
+        temp[t++] = cstring[i];
+    }
+    temp[t] = '\0';
+
+    for (int i = 0; i <= len; i++){
+        cstring[i] = temp[i]
+    }
+
+    return true;
+    
 }
 
 /////////////////////////////////////////////////////
