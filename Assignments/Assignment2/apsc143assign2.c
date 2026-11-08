@@ -5,7 +5,7 @@
 double inverseFactorial(int n);
 double taylorSeries(double x, double minTermSize);
 double integralTaylorSeries(double lowerLimit, double upperLimit, double minTermSize);
-double riemannSum(double lowerLimit, double upperLimit, double numRectangles);
+double riemannSum(double lowerLimit, double upperLimit, int numRectangles);
 
 
 
@@ -17,6 +17,7 @@ int main(void){
     return 0;
 }
 
+// multiply some initial variable 1 (Because 0! = 1) by the inverse of i for every term in some factorial n!
 double inverseFactorial(int n){
     double result = 1;
     for (double i = 1.0; i <= n; i++){
@@ -25,11 +26,13 @@ double inverseFactorial(int n){
     return result;
 }
 
+
 double taylorSeries(double x, double minTermSize){
     double sum = 0;
-
+    // while loop that doesn't increment n within actual loop code. 
     for (double n = 0;;n++){
         double term = inverseFactorial(n) * pow(x, 2 * n);
+        // check to see if term is greater than minimum, add term to total if it is otherwise terminate
         if (term > minTermSize){
             sum += term;
         }
@@ -37,14 +40,15 @@ double taylorSeries(double x, double minTermSize){
             return sum;
         }
     }
-
     return sum;
 }
 
 double integralTaylorSeries(double lowerLimit, double upperLimit, double minTermSize){
     double sum = 0;
+
     for (double n = 0;;n++){
         double term = inverseFactorial(n) * (pow(upperLimit, 2 * n + 1) - pow(lowerLimit, 2 * n + 1)) / (2 * n + 1);
+        // check to see if term is greater than minimum, add term to total if it is otherwise terminate
         if (term > minTermSize){
             sum += term;
         }
@@ -54,16 +58,17 @@ double integralTaylorSeries(double lowerLimit, double upperLimit, double minTerm
     }
 }
 
-double riemannSum(double lowerLimit, double upperLimit, double numRectangles){
+// approximate riemann sum using left riemann sum 
+double riemannSum(double lowerLimit, double upperLimit, int numRectangles){
     double sum = 0;
-
     for (double i = 0; i < numRectangles; i++){
         double deltaX = (upperLimit - lowerLimit) / numRectangles;
         double Xi = lowerLimit + i * deltaX;
 
-        double powEuler = exp(pow(Xi, 2)) * deltaX;
+        // calculate the area of the rectangles
+        double rectArea = exp(pow(Xi, 2)) * deltaX;
 
-        sum += powEuler;
+        sum += rectArea;
     }
 
     return sum;
